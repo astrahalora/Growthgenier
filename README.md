@@ -2,6 +2,15 @@
 
 Fully reponsive MERN project initialized with Vite.
 
+## Technologies
+
+- React (frontend JavaScript library for building user interfaces based on components)
+- Node.js (backend JavaScript runtime environment)
+- Express.js (backend web application framework for building RESTful APIs with Node.js)
+- MongoDB (NoSQL database program)
+- Bootstrap (CSS framework)
+- SCSS (CSS preprocessor)
+
 # Setup
 
 ## Client side
