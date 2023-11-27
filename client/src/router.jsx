@@ -6,13 +6,13 @@ import ErrorPage from "./pages/ErrorPage";
 import Navigation from "./components/Navigation";
 
 export const router = createBrowserRouter([
-    { 
-        path: "/", 
+    {   
+        path: "/",
         element: <Navigation />,
         errorElement: <ErrorPage />,
         children: [
             {
-                path: "/",
+                index: true,
                 element: <Profile />
             },
             {

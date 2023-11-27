@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 export default function Navigation() {
     return <>
@@ -11,10 +11,10 @@ export default function Navigation() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link" aria-current="page">Profile</Link>
+                            <NavLink to="/" className="nav-link" aria-current="page">Profile</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="/projects" className="nav-link">Projects</Link>
+                            <NavLink to="/projects" className="nav-link">Projects</NavLink>
                         </li>
                     </ul>
                 </div>
