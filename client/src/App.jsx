@@ -1,9 +1,11 @@
 function App() {
 
   return (
-    <p>
-    Start from scratch.
-    </p>
+    <div>
+    <p>Start from scratch.</p>
+     <button className="btn btn-primary">It Works</button>
+    </div>
+
   )
 }
 
