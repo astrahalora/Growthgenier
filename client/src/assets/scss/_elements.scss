@@ -1,0 +1,26 @@
+.btn-custom {
+    background-color: $secondary-color;
+    font-weight: 500;
+    color: $main-text-color;
+
+    &:hover {
+        color: $secondary-text-color;
+        background-color: $secondary-accent;
+    }
+}
+
+.text-custom-primary {
+    color: $main-text-color;
+}
+
+.text-custom-secondary {
+    color: $secondary-text-color;
+}
+
+.bkg-nature {
+    background-color: $nature-color;
+}
+
+.bkg-achievement {
+    background-color: $main-accent-color;
+}
