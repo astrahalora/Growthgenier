@@ -1,11 +1,10 @@
-import Welcome from "../components/Welcome";
+import GrowthFrame from "../components/GrowthFrame";
 
 export default function Profile() {
-  const title = "Dirt";
-  
+
   return (
     <div className="container">
-      <Welcome title={title} />
+      <GrowthFrame/>
     </div>
   );
 }
