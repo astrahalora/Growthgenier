@@ -1,3 +1,19 @@
 html, body {
     background-color: $main-color;
 }
+
+.navbar {
+    background-color: $secondary-color;
+
+    .navbar-nav .nav-link {
+        color: $main-text-color;
+
+        &.active {
+            color: $secondary-text-color;
+        }
+    }
+}
+
+#logo {
+    height: 42px;
+}
