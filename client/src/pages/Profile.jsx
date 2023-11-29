@@ -1,3 +1,11 @@
+import Welcome from "../components/Welcome";
+
 export default function Profile() {
-    return <h1>Profile</h1>
+  const title = "Dirt";
+  
+  return (
+    <div className="container">
+      <Welcome title={title} />
+    </div>
+  );
 }
