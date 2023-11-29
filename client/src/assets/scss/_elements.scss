@@ -24,3 +24,12 @@
 .bkg-achievement {
     background-color: $main-accent-color;
 }
+
+.footer-position {
+    @media (min-width: 992px) {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
