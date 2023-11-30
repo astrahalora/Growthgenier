@@ -4,11 +4,11 @@ export default function GrowthOptions() {
     <div className="col text-custom-secondary my-auto text-lg-center">
       <div>
         <div>
-          <h5 className="d-inline-block px-3 me-2 py-1 bkg-nature">{completed}</h5>
+          <h5 className="d-inline-block px-3 me-2 py-1 bkg-nature rounded-2">{completed}</h5>
           <h5 className="d-inline-block">Completed</h5>
         </div>
         <div>
-          <h5 className="d-inline-block px-3 me-2 py-1 bkg-achievement">
+          <h5 className="d-inline-block px-3 me-2 py-1 bkg-achievement rounded-2">
             {completed}
           </h5>
           <h5 className="d-inline-block">In Progress</h5>
