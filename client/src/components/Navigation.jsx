@@ -3,7 +3,7 @@ import growthLogo from "../assets/images/growthgen_logo.png"
 
 export default function Navigation() {
     return <>
-        <nav className="navbar navbar-expand-md">
+        <nav className="navbar navbar-expand-md sticky-top">
             <div className="container-fluid">
                 <img className="navbar-brand" src={growthLogo} id="logo" alt="Growthgenier Logo"/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

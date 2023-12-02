@@ -68,4 +68,14 @@ Run the following command in your terminal while inside the server directory:
 node server
 ```
 
+To run it with nodemon:
+
+```
+npm run dev
+```
+
 Your local server should now be running, you can check out the base profile json at the address specified in the terminal!
+
+# Credits
+
+- loading icon: Pixabay
