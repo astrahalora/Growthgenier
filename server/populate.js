@@ -15,7 +15,7 @@ const generateProfile = async() => {
 
     await ProfileModel.create({
         level: "Dirt",
-        image: "../assets/images/growth_0.jpg",
+        image: "https://images2.imgbox.com/a8/c5/HKbYaDUB_o.jpg",
         projects: []
     });
     console.log("Profile created");
