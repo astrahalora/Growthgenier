@@ -18,7 +18,7 @@ export default function GrowthFrame() {
         <div className="row mt-4">
         <Welcome title={data[0].level} />
         <GrowthKeeper image={data[0].image} />
-        <GrowthOptions />
+        <GrowthOptions projects={data[0].projects} />
       </div>
       ) }
     </div>
