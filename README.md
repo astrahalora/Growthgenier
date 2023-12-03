@@ -1,6 +1,13 @@
 # About
 
-Fully reponsive MERN project initialized with Vite.
+Fully reponsive MERN project initialized with Vite, complete with:
+
+- custom 404 Page not found
+- custom logo designed with LeonardoAi
+- easy navigation with react-router-dom
+- MongoBD server connection and custom API
+- main image designed and drawn by **astrahalora**
+- loading page (with icon from Pixabay)
 
 ## Technologies
 
@@ -75,7 +82,3 @@ npm run dev
 
 You should see in the terminal that the client has been started at: http://localhost:5173/
 You can CTRL + click on the link or copy + paste it in your browser. 
-
-# Credits
-
-- loading icon: Pixabay
