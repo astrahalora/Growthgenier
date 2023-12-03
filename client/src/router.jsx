@@ -5,6 +5,8 @@ import ProjectList from "./pages/ProjectList";
 import ErrorPage from "./pages/ErrorPage";
 import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
+import ProjectForm from "./components/ProjectForm";
+import ProjectTable from "./components/ProjectTable";
 
 export const router = createBrowserRouter([
     {   
@@ -18,7 +20,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/new-project",
-                element: <Project />
+                element: <ProjectForm />
+            },
+            {
+                path: "/project/:name",
+                element: <ProjectTable/>
             },
             {
                 path: "/projects",
