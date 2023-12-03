@@ -37,6 +37,5 @@ export function useFetch() {
         };
     }, []);
     
-
     return { data, isError, isLoading }
 }

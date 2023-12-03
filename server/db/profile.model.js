@@ -9,7 +9,7 @@ const ProfileSchema = new Schema({
     },
     image: {
         type: String,
-        default: "../assets/images/growth_0.jpg"
+        default: "https://images2.imgbox.com/a8/c5/HKbYaDUB_o.jpg"
     },
     projects: [
         {

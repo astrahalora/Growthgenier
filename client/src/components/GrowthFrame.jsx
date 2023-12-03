@@ -16,9 +16,9 @@ export default function GrowthFrame() {
         <ErrorPage/>
       ) : (
         <div className="row mt-4">
-        <Welcome title={data[0].level} />
-        <GrowthKeeper image={data[0].image} />
-        <GrowthOptions projects={data[0].projects} />
+        <Welcome projects={data} />
+        <GrowthKeeper projects={data} />
+        <GrowthOptions projects={data} />
       </div>
       ) }
     </div>

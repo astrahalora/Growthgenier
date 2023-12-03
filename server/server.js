@@ -2,7 +2,8 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const express = require("express");
-const profileModel = require("./db/profile.model");
+// const profileModel = require("./db/profile.model");
+const projectModel = require("./db/project.model");
 
 const { MONGO_URL, PORT = 5000 } = process.env;
 
@@ -26,8 +27,8 @@ app.use(function (req, res, next) {
   });
 
   app.get("/api/growth/", async(req, res) => {
-    const profile = await profileModel.find();
-    return res.json(profile);
+    const projects = await projectModel.find();
+    return res.json(projects);
   })
 
   const main = async () => {
