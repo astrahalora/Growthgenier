@@ -1,11 +1,13 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import growthLogo from "../assets/images/growthgen_logo.png"
 
 export default function Navigation() {
+    const navigate = useNavigate();
+    
     return <>
         <nav className="navbar navbar-expand-md sticky-top">
             <div className="container-fluid">
-                <img className="navbar-brand" src={growthLogo} id="logo" alt="Growthgenier Logo"/>
+                <img role="button" className="navbar-brand" src={growthLogo} id="logo" alt="Growthgenier Logo" onClick={() => navigate("/")}/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

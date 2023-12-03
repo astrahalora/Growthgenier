@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function GrowthOptions({ projects }) {
+  const navigate = useNavigate();
+
   return (
     <div className="col text-custom-secondary my-auto text-lg-center">
       <div>
@@ -17,7 +21,7 @@ export default function GrowthOptions({ projects }) {
       </div>
       <div className="row mt-lg-4">
         <div className="col-12">
-          <button className="btn btn-custom">Start Project</button>
+          <button className="btn btn-custom" onClick={() => navigate("/new-project")}>Start Project</button>
         </div>
         <div className="col-12 mt-lg-2">
           <button className="btn btn-custom">Resume Project</button>
