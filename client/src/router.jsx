@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Profile from "./pages/Profile";
-import Project from "./pages/Project";
+import Project from "./pages/CurrentProject";
 import ProjectList from "./pages/ProjectList";
 import ErrorPage from "./pages/ErrorPage";
 import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
 import ProjectForm from "./components/ProjectForm";
 import ProjectTable from "./components/ProjectTable";
+import CurrentProject from "./pages/CurrentProject";
 
 export const router = createBrowserRouter([
     {   
@@ -23,8 +24,8 @@ export const router = createBrowserRouter([
                 element: <ProjectForm />
             },
             {
-                path: "/project/:name",
-                element: <ProjectTable/>
+                path: "/current-project",
+                element: <CurrentProject/>
             },
             {
                 path: "/projects",
