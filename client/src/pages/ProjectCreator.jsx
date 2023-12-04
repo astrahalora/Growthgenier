@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { usePost } from "../utilities/usePost";
-import Loading from "../pages/Loading";
+import Loading from "./Loading";
 
 const LOCAL_STORAGE_KEY = "TASKS";
 
-export default function ProjectForm() {
+export default function ProjectCreator() {
     const [newTaskName, setNewTaskName] = useState("");
     const [tasks, setTasks] = useState(() => {
         const value = localStorage.getItem(LOCAL_STORAGE_KEY);

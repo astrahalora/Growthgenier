@@ -1,12 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Profile from "./pages/Profile";
-import Project from "./pages/CurrentProject";
 import ProjectList from "./pages/ProjectList";
 import ErrorPage from "./pages/ErrorPage";
 import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
-import ProjectForm from "./components/ProjectForm";
-import ProjectTable from "./components/ProjectTable";
+import ProjectCreator from "./pages/ProjectCreator";
 import CurrentProject from "./pages/CurrentProject";
 
 export const router = createBrowserRouter([
@@ -21,7 +19,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/new-project",
-                element: <ProjectForm />
+                element: <ProjectCreator />
             },
             {
                 path: "/current-project",
