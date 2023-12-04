@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const ProjectSchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     tasks: [
         {
             taskName: String,

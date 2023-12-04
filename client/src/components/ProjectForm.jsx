@@ -12,7 +12,7 @@ export default function ProjectForm() {
 
     const addTask = () => {
         if (newTaskName === "") return;
-        setTasks((prevTasks) => [...prevTasks, { name: newTaskName, id: crypto.randomUUID() }]);
+        setTasks((prevTasks) => [...prevTasks, { taskName: newTaskName, id: crypto.randomUUID() }]);
         setNewTaskName("");
     };
 
@@ -31,8 +31,7 @@ export default function ProjectForm() {
     };
 
     return (
-        <form 
-        onSubmit={handleFormSubmit} className="container p-5 form-box mt-4 bkg-fill rounded-3 text-achievement">
+        <form onSubmit={handleFormSubmit} className="container p-5 form-box mt-4 bkg-fill rounded-3 text-achievement">
             <div className="row mx-auto">
                 <label htmlFor="name" className="col-2 form-label lh-lg">Name:</label>
                 <input
@@ -49,7 +48,7 @@ export default function ProjectForm() {
                 <ul className="col-12 text-center list-unstyled">
                     {tasks && tasks.length ? tasks.map((task) => (
                                 <li key={task.id} className="fs-6">
-                                    <p className="d-inline">{task.name}</p>
+                                    <p className="d-inline">{task.taskName}</p>
                                     <button type="button" className="btn btn-custom m-1 ms-2" onClick={() => deleteTask(task.id)}>X</button>
                                 </li>
                         )) : null}
@@ -69,9 +68,9 @@ export default function ProjectForm() {
                 </button>
             </div>
 
-            <div class="row d-flex justify-content-center mt-4">
+            <div className="row d-flex justify-content-center mt-4">
                 <div className="col-4"></div>
-                <button type="submit" class="btn btn-custom col-4">Start Project</button>
+                <button type="submit" className="btn btn-custom col-4">Start Project</button>
                 <div className="col-4"></div>
             </div>
         </form>
