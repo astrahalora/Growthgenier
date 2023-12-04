@@ -21,6 +21,14 @@
     background-color: $nature-color;
 }
 
+.bkg-fill {
+    background-color: $fill-color;
+}
+
+.text-achievement {
+    color: $main-accent-color;
+}
+
 .bkg-achievement {
     background-color: $main-accent-color;
 }
@@ -41,4 +49,8 @@
 
 .growth-keeper {
     border: 3px solid $secondary-text-color;
+}
+
+.form-box {
+    max-width: 800px;
 }
