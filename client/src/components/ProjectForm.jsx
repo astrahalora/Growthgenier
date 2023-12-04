@@ -34,7 +34,7 @@ export default function ProjectForm() {
         <form 
         onSubmit={handleFormSubmit} className="container p-5 form-box mt-4 bkg-fill rounded-3 text-achievement">
             <div className="row mx-auto">
-                <label htmlFor="name" className="col-2 form-label">Name:</label>
+                <label htmlFor="name" className="col-2 form-label lh-lg">Name:</label>
                 <input
                 className="col-8 p-1 ps-3" 
                 type="text" 
@@ -54,7 +54,7 @@ export default function ProjectForm() {
                                 </li>
                         )) : null}
                 </ul>
-                <label htmlFor="task" className="col-2 form-label">Task:</label>
+                <label htmlFor="task" className="col-2 form-label lh-lg">Task:</label>
                 <input
                     className="col-8"
                     type="text"
