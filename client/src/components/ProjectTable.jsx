@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function ProjectTable({ data }) {
+    const [stateChanged, setStateChaged] = useState(false);
     const handleStatusChange = () => {
 
     }
@@ -9,6 +12,10 @@ export default function ProjectTable({ data }) {
 
     const applyProgressStatusBackground = (projectStatus) => {
         return projectStatus === false ? "bkg-achievement" : "bkg-nature";
+    }
+
+    const checkTaskStatus = (taskStatus) => {
+        return taskStatus === false ? "" : "text-decoration-line-through";
     }
 
     return <div className="container mt-4">
@@ -25,7 +32,9 @@ export default function ProjectTable({ data }) {
             <tbody>
                 {data.tasks.map((task) => (
                     <tr key={task._id}>
-                        <td className="lh-lg">{task.taskName}</td>
+                        <td className={`lh-lg ${checkTaskStatus(task.taskStatus)}`}>
+                            {task.taskName}
+                        </td>
                         <td className="lh-lg">
                             <input
                                 type="checkbox"

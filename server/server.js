@@ -49,6 +49,24 @@ app.route("/api/growth/")
     }
   })
 
+  app.route("/api/growth/:id")
+  .patch(async (req, res) => {
+    const projectId = req.params.id;
+    
+    try {
+      const project = await Project.findOneAndUpdate(
+        { _id: projectId },
+        { $set: { ...req.body } },
+        { new: true }
+      );
+  
+      const updatedProject = await project.save();
+      return res.json(updatedProject);
+    } catch (err) {
+      return res.status(400).json({ message: err.message });
+    }
+  });
+
 const main = async () => {
   await mongoose.connect(MONGO_URL);
 
