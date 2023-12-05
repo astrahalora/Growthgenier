@@ -59,7 +59,7 @@ app.route("/api/growth/")
         { $set: { ...req.body } },
         { new: true }
       );
-  
+
       const updatedProject = await project.save();
       return res.json(updatedProject);
     } catch (err) {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useFetch() {
+export function useFetch(fetchKey) {
     const [data, setData] = useState();
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +35,7 @@ export function useFetch() {
         return () => {
             controller.abort();
         };
-    }, []);
+    }, [fetchKey]);
     
     return { data, isError, isLoading }
 }

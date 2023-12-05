@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePatch } from "../utilities/usePatch";
 
-export default function ProjectTable({ data }) {
+export default function ProjectTable({ project }) {
     const [stateChanged, setStateChaged] = useState(false);
-    const handleStatusChange = (data, task) => {
-        
+
+    useEffect(() => {
+        if (stateChanged) {
+            window.location.reload();
+        }
+    }, [stateChanged])
+    
+    const handleStatusChange = (project, task) => {
+        const updatedProject = JSON.parse(JSON.stringify(project));
+        updatedProject.tasks.forEach(item => item._id === task._id ? item.taskStatus = !item.taskStatus : null)
+
+        usePatch(project._id, updatedProject)
+        .then(() => {
+            setStateChaged(prev => !prev)
+        })
+        .catch(err => {
+            console.error(err.message);
+        });
     }
 
     const checkProjectStatus = (projectStatus) => {
@@ -20,7 +36,7 @@ export default function ProjectTable({ data }) {
     }
 
     return <div className="container mt-4">
-        <h2 className="text-center">{data.name}</h2>
+        <h2 className="text-center">{project.name}</h2>
         <table className="table bkg-fill">
             <thead>
                 <tr>
@@ -31,7 +47,7 @@ export default function ProjectTable({ data }) {
                 </tr>
             </thead>
             <tbody>
-                {data.tasks.map((task) => (
+                {project.tasks.map((task) => (
                     <tr key={task._id}>
                         <td className={`lh-lg ${checkTaskStatus(task.taskStatus)}`}>
                             {task.taskName}
@@ -40,7 +56,7 @@ export default function ProjectTable({ data }) {
                             <input
                                 type="checkbox"
                                 defaultChecked={task.taskStatus}
-                                onChange={() => handleStatusChange(data, task)}
+                                onChange={() => handleStatusChange(project, task)}
                             ></input>
                         </td>
                         <td>
@@ -57,8 +73,8 @@ export default function ProjectTable({ data }) {
                 ))}
             </tbody>
         </table>
-        <div className={`${applyProgressStatusBackground(data.status)} p-2 text-center`}>
-            <h3>Status: {checkProjectStatus(data.status)}</h3>
+        <div className={`${applyProgressStatusBackground(project.status)} p-2 text-center`}>
+            <h3>Status: {checkProjectStatus(project.status)}</h3>
         </div>
     </div>
 }

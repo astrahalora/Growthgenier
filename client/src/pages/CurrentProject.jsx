@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import ProjectTable from "../components/ProjectTable";
 import { useFetch } from "../utilities/useFetch";
 import ErrorPage from "./ErrorPage";
@@ -13,7 +14,7 @@ export default function CurrentProject() {
       ) : isError ? (
         <ErrorPage />
       ) : (
-        <ProjectTable data={data[data.length - 1]} />
+        <ProjectTable project={data[data.length - 1]} />
       )}
     </>
   );
