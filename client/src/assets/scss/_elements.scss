@@ -54,3 +54,12 @@
 .form-box {
     max-width: 800px;
 }
+
+.table {
+    --bs-body-bg: $bkg-fill;
+    --bs-table-border-color: black;
+    --bs-table-color: $main-accent-color;
+    td {
+        color: $main-accent-color;
+    }
+}
