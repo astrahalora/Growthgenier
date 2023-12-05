@@ -15,7 +15,7 @@ export default function CurrentProject() {
       const response = await fetch("http://127.0.0.1:5000/api/growth", { signal: controller.signal });
       if (response.status === 200) {
         const data = await response.json();
-        setData(data);
+        setData(data[data.length - 1]);
       } else {
         throw new Error("Request failed");
       }
@@ -54,7 +54,7 @@ export default function CurrentProject() {
       ) : isError ? (
         <ErrorPage />
       ) : (
-        <ProjectTable project={data[data.length - 1]} statusChange={handleTaskStatusChange} />
+        <ProjectTable project={data} statusChange={handleTaskStatusChange} />
       )}
     </>
   );
