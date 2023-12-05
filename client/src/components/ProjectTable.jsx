@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { usePatch } from "../utilities/usePatch";
 
 export default function ProjectTable({ data }) {
     const [stateChanged, setStateChaged] = useState(false);
-    const handleStatusChange = () => {
-
+    const handleStatusChange = (data, task) => {
+        
     }
 
     const checkProjectStatus = (projectStatus) => {
@@ -39,7 +40,7 @@ export default function ProjectTable({ data }) {
                             <input
                                 type="checkbox"
                                 defaultChecked={task.taskStatus}
-                                onChange={() => handleStatusChange(task)}
+                                onChange={() => handleStatusChange(data, task)}
                             ></input>
                         </td>
                         <td>
