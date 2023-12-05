@@ -1,27 +1,4 @@
-import { useState, useEffect } from "react";
-import { usePatch } from "../utilities/usePatch";
-
-export default function ProjectTable({ project }) {
-    const [stateChanged, setStateChaged] = useState(false);
-
-    useEffect(() => {
-        if (stateChanged) {
-            window.location.reload();
-        }
-    }, [stateChanged])
-    
-    const handleStatusChange = (project, task) => {
-        const updatedProject = JSON.parse(JSON.stringify(project));
-        updatedProject.tasks.forEach(item => item._id === task._id ? item.taskStatus = !item.taskStatus : null)
-
-        usePatch(project._id, updatedProject)
-        .then(() => {
-            setStateChaged(prev => !prev)
-        })
-        .catch(err => {
-            console.error(err.message);
-        });
-    }
+export default function ProjectTable({ project, statusChange }) {
 
     const checkProjectStatus = (projectStatus) => {
         return projectStatus === false ? "In Progress" : "Completed";
@@ -56,7 +33,7 @@ export default function ProjectTable({ project }) {
                             <input
                                 type="checkbox"
                                 defaultChecked={task.taskStatus}
-                                onChange={() => handleStatusChange(project, task)}
+                                onChange={() => statusChange(project, task)}
                             ></input>
                         </td>
                         <td>
