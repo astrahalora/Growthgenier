@@ -67,8 +67,15 @@ export default function CurrentProject() {
       });
   }
 
-  const handleSaveEditedTask = (project, task) => {
-
+  const handleSaveEditedTask = (project, taskId, newTaskName) => {
+    const updatedProject = JSON.parse(JSON.stringify(project));
+    updatedProject.tasks.forEach(item => item._id === taskId ? item.taskName = newTaskName : null);
+    
+    usePatch(project._id, updatedProject)
+    .then(() => setStateChaged(prev => !prev))
+    .catch(err => {
+      console.error(err.message);
+    });
   }
 
   return (

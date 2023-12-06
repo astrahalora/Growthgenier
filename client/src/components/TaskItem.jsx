@@ -17,7 +17,7 @@ export default function TaskItem({ project, task, statusChange, saveTask }) {
         setIsEditing(false);
 
         if (nameRef.current.value === "") return;
-        saveTask(project, task, nameRef.current.value);
+        saveTask(project, task._id, nameRef.current.value);
     }
 
     return (
