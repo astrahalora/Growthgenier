@@ -8,9 +8,18 @@ export default function ProjectTable({ project, statusChange }) {
         return projectStatus === false ? "bkg-achievement" : "bkg-nature";
     }
 
-    const checkTaskStatus = (taskStatus) => {
-        return taskStatus === false ? "" : "text-decoration-line-through";
+    const checkTaskStatus = (taskStatus, element) => {
+        const condition = taskStatus === false;
+        if (element === "text") {
+            return condition ? "" : "text-decoration-line-through";
+        } else {
+            return condition ? "" : "bkg-dark-fill";
+        }
     }
+
+    const sortedTasks = [...project.tasks].sort((a, b) => {
+        return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
+    });
 
     return <div className="container mt-4">
         <h2 className="text-center">{project.name}</h2>
@@ -24,9 +33,9 @@ export default function ProjectTable({ project, statusChange }) {
                 </tr>
             </thead>
             <tbody>
-                {project.tasks.map((task) => (
-                    <tr key={task._id}>
-                        <td className={`lh-lg ${checkTaskStatus(task.taskStatus)}`}>
+                {sortedTasks?.map((task) => (
+                    <tr key={task._id} className={`${checkTaskStatus(task.taskStatus, "bkg")}`}>
+                        <td className={`lh-lg ${checkTaskStatus(task.taskStatus, "text")}`}>
                             {task.taskName}
                         </td>
                         <td className="lh-lg">
