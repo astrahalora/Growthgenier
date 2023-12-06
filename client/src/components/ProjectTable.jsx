@@ -25,7 +25,7 @@ export default function ProjectTable({ project, statusChange }) {
         <h2 className="text-center">{project.name}</h2>
         <table className="table bkg-fill">
             <thead>
-                <tr>
+                <tr className="bkg-nature">
                     <th scope="col">Task</th>
                     <th scope="col">Completed</th>
                     <th scope="col">Edit</th>
