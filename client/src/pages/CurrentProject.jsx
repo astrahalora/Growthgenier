@@ -10,26 +10,25 @@ export default function CurrentProject() {
   const [isLoading, setIsLoading] = useState(true);
   const [stateChanged, setStateChaged] = useState(false);
 
-  const getProjects = async (controller) => {
-    try {
-      const response = await fetch("http://127.0.0.1:5000/api/growth", { signal: controller.signal });
-      if (response.status === 200) {
-        const data = await response.json();
-        setData(data[data.length - 1]);
-      } else {
-        throw new Error("Request failed");
-      }
-    } catch(error) {
-      if(e.name === "AbortError") return;
-      setIsError(true);
-    } finally {
-      if(controller.signal.aborted) return;
-      setIsLoading(false)
-    }
-  }
-
   useEffect(() => {
-      const abortController = new AbortController();
+    const getProjects = async (controller) => {
+      try {
+        const response = await fetch("http://127.0.0.1:5000/api/growth", { signal: controller.signal });
+        if (response.status === 200) {
+          const data = await response.json();
+          setData(data[data.length - 1]);
+        } else {
+          throw new Error("Request failed");
+        }
+      } catch(error) {
+        if(e.name === "AbortError") return;
+        setIsError(true);
+      } finally {
+        if(controller.signal.aborted) return;
+        setIsLoading(false);
+      }
+    }
+    const abortController = new AbortController();
       getProjects(abortController);
       return () => abortController.abort();
   }, [stateChanged])
