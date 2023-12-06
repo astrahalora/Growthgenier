@@ -1,11 +1,17 @@
+import done from "../assets/images/done_marker.png";
+import wip from "../assets/images/wip_marker.jpg";
+
 export default function ProjectTable({ project, statusChange }) {
 
-    const checkProjectStatus = (projectStatus) => {
-        return projectStatus === false ? "In Progress" : "Completed";
-    }
-
-    const applyProgressStatusBackground = (projectStatus) => {
-        return projectStatus === false ? "bkg-achievement" : "bkg-nature";
+    const checkProjectStatus = (projectStatus, status) => {
+        const condition = projectStatus === false;
+        if(status === "status") {
+            return condition ? "In Progress" : "Completed";
+        } else if (status === "bkg") {
+            return condition ? "bkg-achievement" : "bkg-nature";
+        } else {
+            return condition ? wip : done;
+        }
     }
 
     const checkTaskStatus = (taskStatus, element) => {
@@ -21,11 +27,11 @@ export default function ProjectTable({ project, statusChange }) {
         return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
     });
 
-    return <div className="container mt-4">
+    return <div className="container d-flex flex-column align-items-center mt-4">
         <h2 className="text-center">{project.name}</h2>
-        <table className="table bkg-fill">
+        <table className="table bkg-fill mt-3">
             <thead>
-                <tr className="bkg-nature">
+                <tr className="bkg-achievement">
                     <th scope="col">Task</th>
                     <th scope="col">Completed</th>
                     <th scope="col">Edit</th>
@@ -59,8 +65,9 @@ export default function ProjectTable({ project, statusChange }) {
                 ))}
             </tbody>
         </table>
-        <div className={`${applyProgressStatusBackground(project.status)} p-2 text-center`}>
-            <h3>Status: {checkProjectStatus(project.status)}</h3>
+        <div className={`${checkProjectStatus(project.status, "bkg")} p-2 text-center w-100 project-status position-relative`}>
+        <img src={checkProjectStatus(project.status, "pic")} alt="Status Marker" className="position-absolute top-0 start-0 h-100"/>
+            <h3>Status: {checkProjectStatus(project.status, "status")}</h3>
         </div>
     </div>
 }

@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 
 export default function YourComponent({ projects }) {
-  const completedProjects = projects.filter(project => project.status).length;
   const getTitle = useMemo(() => {
+    const completedProjects = projects.filter(project => project.status).length;
     switch (completedProjects) {
       case 1:
         return "Flower";
