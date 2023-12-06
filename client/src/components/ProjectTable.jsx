@@ -1,25 +1,17 @@
 import done from "../assets/images/done_marker.png";
 import wip from "../assets/images/wip_marker.jpg";
+import TaskItem from "./TaskItem";
 
-export default function ProjectTable({ project, statusChange }) {
+export default function ProjectTable({ project, statusChange, saveTask }) {
 
-    const checkProjectStatus = (projectStatus, status) => {
+    const checkProjectStatus = (projectStatus, element) => {
         const condition = projectStatus === false;
-        if(status === "status") {
+        if(element === "status") {
             return condition ? "In Progress" : "Completed";
-        } else if (status === "bkg") {
+        } else if (element === "bkg") {
             return condition ? "bkg-achievement" : "bkg-nature";
         } else {
             return condition ? wip : done;
-        }
-    }
-
-    const checkTaskStatus = (taskStatus, element) => {
-        const condition = taskStatus === false;
-        if (element === "text") {
-            return condition ? "" : "text-decoration-line-through";
-        } else {
-            return condition ? "" : "bkg-dark-fill";
         }
     }
 
@@ -40,28 +32,13 @@ export default function ProjectTable({ project, statusChange }) {
             </thead>
             <tbody>
                 {sortedTasks?.map((task) => (
-                    <tr key={task._id} className={`${checkTaskStatus(task.taskStatus, "bkg")}`}>
-                        <td className={`lh-lg ${checkTaskStatus(task.taskStatus, "text")}`}>
-                            {task.taskName}
-                        </td>
-                        <td className="lh-lg">
-                            <input
-                                type="checkbox"
-                                defaultChecked={task.taskStatus}
-                                onChange={() => statusChange(project, task)}
-                            ></input>
-                        </td>
-                        <td>
-                            <button type="button" className="btn btn-custom">
-                                Edit
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" className="btn btn-custom">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
+                    <TaskItem 
+                    key={task._id} 
+                    project={project} 
+                    task={task} 
+                    statusChange={statusChange}
+                    saveTask={saveTask}
+                    />
                 ))}
             </tbody>
         </table>

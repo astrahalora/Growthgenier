@@ -20,51 +20,55 @@ export default function CurrentProject() {
         } else {
           throw new Error("Request failed");
         }
-      } catch(error) {
-        if(e.name === "AbortError") return;
+      } catch (error) {
+        if (e.name === "AbortError") return;
         setIsError(true);
       } finally {
-        if(controller.signal.aborted) return;
+        if (controller.signal.aborted) return;
         setIsLoading(false);
       }
     }
     const abortController = new AbortController();
-      getLastIncompleteProject(abortController);
-      return () => abortController.abort();
+    getLastIncompleteProject(abortController);
+    return () => abortController.abort();
   }, [stateChanged])
 
 
-    const getLastCompletedProject = async (projectId) => {
-      try {
-        const response = await fetch(`http://127.0.0.1:5000/api/growth/last-complete/${projectId}`);
-        if (response.status === 200) {
-          const data = await response.json();
-          setData(data);
-        } else {
-          throw new Error("Request failed");
-        }
-      } catch(error) {
-        setIsError(true);
+  const getLastCompletedProject = async (projectId) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/api/growth/last-complete/${projectId}`);
+      if (response.status === 200) {
+        const data = await response.json();
+        setData(data);
+      } else {
+        throw new Error("Request failed");
       }
+    } catch (error) {
+      setIsError(true);
     }
+  }
 
   const handleTaskStatusChange = (project, task) => {
-      const updatedProject = JSON.parse(JSON.stringify(project));
-      updatedProject.tasks.forEach(item => item._id === task._id ? item.taskStatus = !item.taskStatus : null);
-      const allTasksCompleted = updatedProject.tasks.every(item => item.taskStatus);
-      updatedProject.status = allTasksCompleted;
+    const updatedProject = JSON.parse(JSON.stringify(project));
+    updatedProject.tasks.forEach(item => item._id === task._id ? item.taskStatus = !item.taskStatus : null);
+    const allTasksCompleted = updatedProject.tasks.every(item => item.taskStatus);
+    updatedProject.status = allTasksCompleted;
 
-      usePatch(project._id, updatedProject)
+    usePatch(project._id, updatedProject)
       .then(() => {
-          if(!allTasksCompleted) {
+        if (!allTasksCompleted) {
           setStateChaged(prev => !prev)
-          } else {
-            getLastCompletedProject(project._id);
-          }
+        } else {
+          getLastCompletedProject(project._id);
+        }
       })
       .catch(err => {
-          console.error(err.message);
+        console.error(err.message);
       });
+  }
+
+  const handleSaveEditedTask = (project, task) => {
+
   }
 
   return (
@@ -74,7 +78,11 @@ export default function CurrentProject() {
       ) : isError ? (
         <ErrorPage />
       ) : (
-        <ProjectTable project={data} statusChange={handleTaskStatusChange} />
+        <ProjectTable
+          project={data}
+          statusChange={handleTaskStatusChange}
+          saveTask={handleSaveEditedTask}
+        />
       )}
     </>
   );
