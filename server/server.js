@@ -49,6 +49,27 @@ app.route("/api/growth/")
     }
   })
 
+  app.route("/api/growth/last-incomplete")
+  .get(async (req, res) => {
+    try {
+      const lastProject = await Project.findOne({ status: false }).sort({ _id: -1 });
+      return res.json(lastProject);
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
+  });
+
+  app.route("/api/growth/last-complete/:id")
+  .get(async (req, res) => {
+    const projectId = req.params.id;
+    try {
+      const lastProject = await Project.findOne({ _id: projectId });
+      return res.json(lastProject);
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
+  });
+
   app.route("/api/growth/:id")
   .patch(async (req, res) => {
     const projectId = req.params.id;
