@@ -6,7 +6,7 @@ export default function GrowthOptions({ projects }) {
   const incompleteProjects = projects.length ? projects.filter(project => project.status === false).length : 0;
   
   return (
-    <div className="col text-custom-secondary my-auto text-lg-center">
+    <div className="col my-auto text-lg-center">
       <div>
         <div>
           <h5 className="d-inline-block px-3 me-2 py-1 bkg-nature rounded-2">

@@ -28,7 +28,7 @@ export default function ProjectTable({ project, statusChange }) {
     });
 
     return <div className="container d-flex flex-column align-items-center mt-4">
-        <h2 className="text-center">{project.name}</h2>
+        <h2 className="text-center project-name">{project.name}</h2>
         <table className="table bkg-fill mt-3">
             <thead>
                 <tr className="bkg-achievement">
