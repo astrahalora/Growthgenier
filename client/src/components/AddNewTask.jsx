@@ -3,7 +3,7 @@ import { useRef } from "react";
 export default function AddNewTask( { project, addNewTask }) {
     const newTaskName = useRef();
 
-    const addTask = () => {
+    const handleTheAdd = () => {
         addNewTask(project, newTaskName.current.value);
         newTaskName.current.value = "";
     };
@@ -15,7 +15,7 @@ export default function AddNewTask( { project, addNewTask }) {
             <button 
             type="button" 
             className="col btn btn-custom"
-            onClick={addTask}
+            onClick={handleTheAdd}
             >
                 New Task
             </button>

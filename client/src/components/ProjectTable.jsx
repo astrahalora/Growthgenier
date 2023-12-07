@@ -11,7 +11,7 @@ export default function ProjectTable({ project, addNewTask, statusChange, saveTa
     return (
         <div className="container d-flex flex-column align-items-center mt-4">
             <ProjectName projectName={project.name}/>
-            <table className="table bkg-fill mt-3">
+            <table className="table bkg-fill mt-2">
                 <thead>
                     <tr className="bkg-achievement">
                         <th scope="col">Task</th>
