@@ -1,11 +1,14 @@
+import React, { useMemo } from "react";
 import ProjectName from "./ProjectName";
 import ProjectStatus from "./ProjectStatus";
 import TaskItem from "./TaskItem";
 
 export default function ProjectTable({ project, statusChange, saveTask }) {
-    const sortedTasks = [...project.tasks].sort((a, b) => {
-        return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
-    });
+    const sortedTasks = useMemo(() => {
+        return [...project.tasks].sort((a, b) => {
+            return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
+        });
+    }, [project.tasks]);
 
     return (
         <div className="container d-flex flex-column align-items-center mt-4">
