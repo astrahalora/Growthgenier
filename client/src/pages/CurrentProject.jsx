@@ -49,6 +49,18 @@ export default function CurrentProject() {
     }
   }
 
+  const handleAddNewTask = (project, newTaskName) => {
+    const updatedProject = JSON.parse(JSON.stringify(project));
+    updatedProject.tasks.push({taskName: newTaskName});
+
+    if(newTaskName === "") return;
+    usePatch(project._id, updatedProject)
+      .then(() => setStateChaged(prev => !prev))
+      .catch(err => {
+        console.error(err.message);
+      });
+  }
+
   const handleTaskStatusChange = (project, taskId) => {
     const updatedProject = JSON.parse(JSON.stringify(project));
     updatedProject.tasks.forEach(item => item._id === taskId ? item.taskStatus = !item.taskStatus : null);
@@ -98,6 +110,7 @@ export default function CurrentProject() {
       ) : (
         <ProjectTable
           project={data}
+          addNewTask={handleAddNewTask}
           statusChange={handleTaskStatusChange}
           saveTask={handleSaveEditedTask}
           deleteTask={handleTaskDelete}

@@ -1,8 +1,9 @@
+import AddNewTask from "./AddNewTask";
 import ProjectName from "./ProjectName";
 import ProjectStatus from "./ProjectStatus";
 import TaskItem from "./TaskItem";
 
-export default function ProjectTable({ project, statusChange, saveTask, deleteTask }) {
+export default function ProjectTable({ project, addNewTask, statusChange, saveTask, deleteTask }) {
     const sortedTasks = [...project.tasks].sort((a, b) => {
         return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
     });
@@ -25,6 +26,7 @@ export default function ProjectTable({ project, statusChange, saveTask, deleteTa
                             key={task._id}
                             project={project}
                             task={task}
+                            addNewTask={addNewTask}
                             statusChange={statusChange}
                             saveTask={saveTask}
                             deleteTask={deleteTask}
@@ -32,6 +34,7 @@ export default function ProjectTable({ project, statusChange, saveTask, deleteTa
                     ))}
                 </tbody>
             </table>
+            <AddNewTask project={project} addNewTask={addNewTask} />
             <ProjectStatus projectStatus={project.status} />
         </div>
     );
