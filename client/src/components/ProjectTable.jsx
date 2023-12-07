@@ -1,9 +1,8 @@
-import React, { useMemo } from "react";
 import ProjectName from "./ProjectName";
 import ProjectStatus from "./ProjectStatus";
 import TaskItem from "./TaskItem";
 
-export default function ProjectTable({ project, statusChange, saveTask }) {
+export default function ProjectTable({ project, statusChange, saveTask, deleteTask }) {
     const sortedTasks = [...project.tasks].sort((a, b) => {
         return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
     });
@@ -28,6 +27,7 @@ export default function ProjectTable({ project, statusChange, saveTask }) {
                             task={task}
                             statusChange={statusChange}
                             saveTask={saveTask}
+                            deleteTask={deleteTask}
                         />
                     ))}
                 </tbody>

@@ -78,6 +78,13 @@ export default function CurrentProject() {
       });
   }
 
+  const handleTaskDelete = (project, taskId) => {
+    const updatedProject = JSON.parse(JSON.stringify(project));
+    const updatedProjectWithoutTask = updatedProject.filter(item => item._id !== taskId);
+
+    
+  }
+
   return (
     <>
       {isLoading ? (

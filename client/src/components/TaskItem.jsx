@@ -1,15 +1,14 @@
 import { useState, useRef } from "react";
 
-export default function TaskItem({ project, task, statusChange, saveTask }) {
+export default function TaskItem({ project, task, statusChange, saveTask, deleteTask }) {
     const [isEditing, setIsEditing] = useState(false);
     const nameRef = useRef();
 
     const checkTaskStatus = (taskStatus, element) => {
-        const condition = taskStatus === false;
         if (element === "text") {
-            return condition ? null : "text-decoration-line-through";
+            return taskStatus ? "text-decoration-line-through" : null;
         } else {
-            return condition ? null : "bkg-dark-fill";
+            return taskStatus ? "bkg-dark-fill" : null;
         }
     }
 
