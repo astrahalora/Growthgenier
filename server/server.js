@@ -86,6 +86,22 @@ app.route("/api/growth/")
     } catch (err) {
       return res.status(400).json({ message: err.message });
     }
+  })
+  .put(async (req, res) => {
+    const projectId = req.params.id;
+    try {
+      const existingProject = await Project.findById(projectId);
+
+      if (existingProject) {
+        existingProject.tasks = req.body;
+        const updatedProject = await existingProject.save();
+        return res.json(updatedProject);
+      } else {
+        return res.status(404).json({ message: "Project not found" });
+      }
+    } catch (err) {
+      return res.status(400).json({ message: err.message });
+    }
   });
 
 const main = async () => {

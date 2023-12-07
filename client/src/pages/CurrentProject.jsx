@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProjectTable from "../components/ProjectTable";
 import { usePatch } from "../utilities/usePatch";
+import { usePut } from "../utilities/usePut";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
 
@@ -79,10 +80,13 @@ export default function CurrentProject() {
   }
 
   const handleTaskDelete = (project, taskId) => {
-    const updatedProject = JSON.parse(JSON.stringify(project));
-    const updatedProjectWithoutTask = updatedProject.filter(item => item._id !== taskId);
+    const updatedTasks = JSON.parse(JSON.stringify(project.tasks.filter(item => item._id !== taskId)));
 
-    
+    usePut(project._id, updatedTasks)
+      .then(() => setStateChaged(prev => !prev))
+      .catch(err => {
+        console.error(err.message);
+      });
   }
 
   return (
@@ -96,6 +100,7 @@ export default function CurrentProject() {
           project={data}
           statusChange={handleTaskStatusChange}
           saveTask={handleSaveEditedTask}
+          deleteTask={handleTaskDelete}
         />
       )}
     </>

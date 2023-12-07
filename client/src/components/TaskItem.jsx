@@ -61,7 +61,11 @@ export default function TaskItem({ project, task, statusChange, saveTask, delete
                         </button>
                     </td>
                     <td>
-                        <button type="button" className="btn btn-custom">
+                        <button 
+                            type="button" 
+                            className="btn btn-custom"
+                            onClick={() => deleteTask(project, task._id)}
+                        >
                             Delete
                         </button>
                     </td>
