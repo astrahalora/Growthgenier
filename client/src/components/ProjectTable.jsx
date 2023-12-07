@@ -4,11 +4,9 @@ import ProjectStatus from "./ProjectStatus";
 import TaskItem from "./TaskItem";
 
 export default function ProjectTable({ project, statusChange, saveTask }) {
-    const sortedTasks = useMemo(() => {
-        return [...project.tasks].sort((a, b) => {
-            return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
-        });
-    }, [project.tasks]);
+    const sortedTasks = [...project.tasks].sort((a, b) => {
+        return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
+    });
 
     return (
         <div className="container d-flex flex-column align-items-center mt-4">
