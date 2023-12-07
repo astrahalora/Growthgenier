@@ -68,7 +68,7 @@
     max-width: 800px;
 }
 
-.table, .project-confines {
+.table, .project-confines, .project-preview {
     max-width: 900px;
 }
 
@@ -84,4 +84,13 @@
 .project-name {
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
+}
+
+.project-preview {
+    min-width: 600px;
+    height: 200px;
+
+    .preview-image {
+        height: 100%;
+    }
 }

@@ -15,7 +15,7 @@ export default function GrowthFrame() {
       ) : isError ? (
         <ErrorPage/>
       ) : (
-        <div className="row mt-4">
+      <div className="row mt-4">
         <Welcome projects={data} />
         <GrowthKeeper projects={data} />
         <GrowthOptions projects={data} />

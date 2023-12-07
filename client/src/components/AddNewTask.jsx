@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function AddNewTask( { project, addNewTask }) {
+export default function AddNewTask({ project, addNewTask }) {
     const newTaskName = useRef();
 
     const handleTheAdd = () => {
@@ -10,14 +10,14 @@ export default function AddNewTask( { project, addNewTask }) {
 
     return (
         <div className="row w-100 project-confines mb-3">
-            <input type="text" className="col-8" ref={newTaskName}/>
+            <input type="text" className="col-8" ref={newTaskName} />
             <span className="col-1"></span>
-            <button 
-            type="button" 
-            className="col btn btn-custom"
-            onClick={handleTheAdd}
+            <button
+                type="button"
+                className="col btn btn-custom"
+                onClick={handleTheAdd}
             >
-                New Task
+                Add Task
             </button>
         </div>
     );
