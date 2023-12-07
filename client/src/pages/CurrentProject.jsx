@@ -48,9 +48,9 @@ export default function CurrentProject() {
     }
   }
 
-  const handleTaskStatusChange = (project, task) => {
+  const handleTaskStatusChange = (project, taskId) => {
     const updatedProject = JSON.parse(JSON.stringify(project));
-    updatedProject.tasks.forEach(item => item._id === task._id ? item.taskStatus = !item.taskStatus : null);
+    updatedProject.tasks.forEach(item => item._id === taskId ? item.taskStatus = !item.taskStatus : null);
     const allTasksCompleted = updatedProject.tasks.every(item => item.taskStatus);
     updatedProject.status = allTasksCompleted;
 
@@ -70,12 +70,12 @@ export default function CurrentProject() {
   const handleSaveEditedTask = (project, taskId, newTaskName) => {
     const updatedProject = JSON.parse(JSON.stringify(project));
     updatedProject.tasks.forEach(item => item._id === taskId ? item.taskName = newTaskName : null);
-    
+
     usePatch(project._id, updatedProject)
-    .then(() => setStateChaged(prev => !prev))
-    .catch(err => {
-      console.error(err.message);
-    });
+      .then(() => setStateChaged(prev => !prev))
+      .catch(err => {
+        console.error(err.message);
+      });
   }
 
   return (

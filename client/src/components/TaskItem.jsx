@@ -16,14 +16,14 @@ export default function TaskItem({ project, task, statusChange, saveTask }) {
     const handleEdit = () => {
         setIsEditing(false);
 
-        if (nameRef.current.value === "") return;
+        if (nameRef.current.value === "" || nameRef.current.value === task.taskName) return;
         saveTask(project, task._id, nameRef.current.value);
     }
 
     return (
         <>
             {isEditing ? (
-                <tr className="bkg">
+                <tr className={`${checkTaskStatus(task.taskStatus, "bkg")}`}>
                     <td colSpan="2">
                         <input
                             autoFocus
@@ -43,13 +43,13 @@ export default function TaskItem({ project, task, statusChange, saveTask }) {
             ) : (
                 <tr className={`${checkTaskStatus(task.taskStatus, "bkg")}`}>
                     <td className={`lh-lg ${checkTaskStatus(task.taskStatus, "text")}`}>
-                        <span>{task.taskName}</span>
+                        {task.taskName}
                     </td>
                     <td className="lh-lg">
                         <input
                             type="checkbox"
                             defaultChecked={task.taskStatus}
-                            onChange={() => statusChange(project, task)}
+                            onChange={() => statusChange(project, task._id)}
                         />
                     </td>
                     <td>
