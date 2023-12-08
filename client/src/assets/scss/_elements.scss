@@ -68,7 +68,7 @@
     max-width: 800px;
 }
 
-.table, .project-confines, .project-preview {
+.table, .project-confines {
     max-width: 900px;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .project-preview {
-    min-width: 600px;
+    width: 600px;
     height: 150px;
 
     .preview-image {

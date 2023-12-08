@@ -27,11 +27,11 @@ export default function ProjectPreview({ project }) {
                     <div className="w-75 d-flex">
                         <div
                             className="bkg-dark-fill py-2"
-                            style={{ width: `${completionWidth}%` }}>
+                            style={{ width: `${completionWidth}%`}}>
                         </div>
                         <div
                             className="bkg-pale-fill py-2"
-                            style={{ width: `${100 - completionWidth}%` }}>
+                            style={{ width: `${100 - completionWidth}%`}}>
                         </div>
                     </div>
                 </div>

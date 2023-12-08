@@ -1,16 +1,9 @@
 import { useState, useRef } from "react";
+import { checkTaskStatus } from "../utilities/taskStatusChecker";
 
 export default function TaskItem({ project, task, statusChange, saveTask, deleteTask }) {
     const [isEditing, setIsEditing] = useState(false);
     const nameRef = useRef();
-
-    const checkTaskStatus = (taskStatus, element) => {
-        if (element === "text") {
-            return taskStatus ? "text-decoration-line-through" : null;
-        } else {
-            return taskStatus ? "bkg-dark-fill" : null;
-        }
-    }
 
     const handleEdit = () => {
         setIsEditing(false);
