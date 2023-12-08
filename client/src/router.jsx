@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import NotFound from "./pages/NotFound";
 import ProjectCreator from "./pages/ProjectCreator";
 import CurrentProject from "./pages/CurrentProject";
+import SelectedProject from "./pages/SelectedProject";
 
 export const router = createBrowserRouter([
     {   
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
             {
                 path: "/projects",
                 element: <ProjectList />
+            },
+            {
+                path: "/project",
+                element: <SelectedProject />
             },
             {
                 path: "*",

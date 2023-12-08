@@ -11,7 +11,6 @@ export default function ProjectList() {
     const [dataToDisplay, setDataToDisplay] = useState();
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [stateChanged, setStateChaged] = useState(false);
 
     useEffect(() => {
         const getLastIncompleteProject = async (controller) => {
@@ -40,7 +39,7 @@ export default function ProjectList() {
         const abortController = new AbortController();
         getLastIncompleteProject(abortController);
         return () => abortController.abort();
-    }, [stateChanged]);
+    }, []);
 
     const filterByCompletion = (input, select) => {
         const optionName = select.current.value;
@@ -60,7 +59,7 @@ export default function ProjectList() {
     const searchByName = (input) => {
         const searchPhrase = input.current.value.toLowerCase();
         // set dataToDisplay to last value of filteredData
-        // since we're not manipulating filteredData here, can always be baseline
+        // since we're not manipulating filteredData here, can be new base data
         setDataToDisplay(filteredData);
         setDataToDisplay(prev => {
             return [...prev]

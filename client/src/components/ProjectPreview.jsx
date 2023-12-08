@@ -1,17 +1,10 @@
 import { checkProjectStatus } from "../utilities/projectStatusChecker";
+import { calculateCompletionWidth } from "../utilities/calculators";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectPreview({ project }) {
-    const calculateCompletionWidth = () => {
-        const totalTasks = project.tasks.length;
-        if (totalTasks === 0) return 0;
-
-        const completedTasks = project.tasks.filter(task => task.taskStatus).length;
-        const completionPercentage = (completedTasks / totalTasks) * 100;
-
-        return Math.floor(completionPercentage);
-    }
-
-    const completionWidth = calculateCompletionWidth();
+    const completionWidth = calculateCompletionWidth(project);
+    const navigate = useNavigate();
 
     return (
         <div className="d-flex">
@@ -38,7 +31,9 @@ export default function ProjectPreview({ project }) {
             </div>
             <div className="bkg-fill mt-3 d-flex flex-column 
                 justify-content-center align-items-center px-4">
-                <button type="button" className="btn btn-custom">
+                <button type="button" className="btn btn-custom"
+                onClick={() => navigate("/project")}
+                >
                     Resume
                 </button>
                 <button type="button" className="btn btn-custom mt-2">
