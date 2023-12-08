@@ -71,6 +71,15 @@ app.route("/api/growth/")
   });
 
   app.route("/api/growth/:id")
+  .get(async (req, res) => {
+    const projectId = req.params.id;
+    try {
+      const project = await Project.find( {_id: projectId});
+      return res.json(project);
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
+  })
   .patch(async (req, res) => {
     const projectId = req.params.id;
     
@@ -102,18 +111,22 @@ app.route("/api/growth/")
     } catch (err) {
       return res.status(400).json({ message: err.message });
     }
-  });
-
-  app.route("/api/growth/project/:id")
-    .get(async (req, res) => {
-      const projectId = req.params.id;
-      try {
-        const project = await Project.find( {_id: projectId});
-        return res.json(project);
-      } catch (err) {
-        return res.status(500).json({ message: err.message });
+  })
+  .delete(async (req, res) => {
+    const projectId = req.params.id;
+  
+    try {
+      const project = await Project.findOneAndDelete({ _id: projectId });
+  
+      if (!project) {
+        return res.status(404).json({ message: "Project not found" });
       }
-    });
+      return res.status(200).json({ message: "Project deleted successfully" });
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
+  });
+  
 
 const main = async () => {
   await mongoose.connect(MONGO_URL);

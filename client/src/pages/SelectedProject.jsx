@@ -14,9 +14,9 @@ export default function SelectedProject() {
     const [stateChanged, setStateChaged] = useState(false);
   
     useEffect(() => {
-      const getLastIncompleteProject = async (controller) => {
+      const getSelectedProject = async (controller) => {
         try {
-          const response = await fetch(`http://127.0.0.1:5000/api/growth/project/${projectId}`, { signal: controller.signal });
+          const response = await fetch(`http://127.0.0.1:5000/api/growth/${projectId}`, { signal: controller.signal });
           if (response.status === 200) {
             const data = await response.json();
             setData(data[0]);
@@ -32,15 +32,17 @@ export default function SelectedProject() {
         }
       }
       const abortController = new AbortController();
-      getLastIncompleteProject(abortController);
+      getSelectedProject(abortController);
       return () => abortController.abort();
     }, [stateChanged])
 
     const handleAddNewTask = (project, newTaskName) => {
+        if(newTaskName === "") return;
         const updatedProject = JSON.parse(JSON.stringify(project));
         updatedProject.tasks.push({taskName: newTaskName});
+        const allTasksCompleted = updatedProject.tasks.every(item => item.taskStatus);
+        updatedProject.status = allTasksCompleted;
     
-        if(newTaskName === "") return;
         usePatch(project._id, updatedProject)
           .then(() => setStateChaged(prev => !prev))
           .catch(err => {

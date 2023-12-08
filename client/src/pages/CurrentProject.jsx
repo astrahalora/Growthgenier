@@ -9,7 +9,7 @@ export default function CurrentProject() {
   const [data, setData] = useState();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [stateChanged, setStateChaged] = useState(false);
+  const [stateChanged, setStateChanged] = useState(false);
 
   useEffect(() => {
     const getLastIncompleteProject = async (controller) => {
@@ -50,12 +50,14 @@ export default function CurrentProject() {
   }
 
   const handleAddNewTask = (project, newTaskName) => {
+    if(newTaskName === "") return;
     const updatedProject = JSON.parse(JSON.stringify(project));
     updatedProject.tasks.push({taskName: newTaskName});
+    const allTasksCompleted = updatedProject.tasks.every(item => item.taskStatus);
+    updatedProject.status = allTasksCompleted;
 
-    if(newTaskName === "") return;
     usePatch(project._id, updatedProject)
-      .then(() => setStateChaged(prev => !prev))
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
@@ -70,7 +72,7 @@ export default function CurrentProject() {
     usePatch(project._id, updatedProject)
       .then(() => {
         if (!allTasksCompleted) {
-          setStateChaged(prev => !prev)
+          setStateChanged(prev => !prev)
         } else {
           getLastCompletedProject(project._id);
         }
@@ -85,7 +87,7 @@ export default function CurrentProject() {
     updatedProject.tasks.forEach(item => item._id === taskId ? item.taskName = newTaskName : null);
 
     usePatch(project._id, updatedProject)
-      .then(() => setStateChaged(prev => !prev))
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
@@ -95,7 +97,7 @@ export default function CurrentProject() {
     const updatedTasks = JSON.parse(JSON.stringify(project.tasks.filter(item => item._id !== taskId)));
 
     usePut(project._id, updatedTasks)
-      .then(() => setStateChaged(prev => !prev))
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
