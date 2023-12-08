@@ -12,4 +12,11 @@ const checkProjectStatus = (projectStatus, element) => {
     }
 };
 
-export { checkProjectStatus };
+const filterByStatus = (projects, optionName) => {
+    return [...projects].filter(item => {
+        if(optionName === "Completed") return item.status;
+        return !item.status;
+    })
+}
+
+export { checkProjectStatus, filterByStatus };

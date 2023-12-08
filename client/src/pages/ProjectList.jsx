@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Loading from "./Loading";
 import ErrorPage from "./ErrorPage";
 import ProjectPreview from "../components/ProjectPreview";
+import { filterByStatus } from "../utilities/projectStatusChecker";
 
 export default function ProjectList() {
     const [data, setData] = useState();
@@ -53,14 +54,8 @@ export default function ProjectList() {
         if(optionName === "-- All Projects --") return;
 
         // if want to view completed or in progress, filter both
-        const filterByStatus = (projects) => {
-            return [...projects].filter(item => {
-                if(optionName === "Completed") return item.status;
-                return !item.status;
-            })
-        }
-        setDataToDisplay(prev =>  filterByStatus(prev));
-        setFilteredData(prev =>  filterByStatus(prev));
+        setDataToDisplay(prev =>  filterByStatus(prev, optionName));
+        setFilteredData(prev =>  filterByStatus(prev, optionName));
     };
     
     const searchByName = () => {
