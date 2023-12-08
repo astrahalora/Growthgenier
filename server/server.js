@@ -104,6 +104,17 @@ app.route("/api/growth/")
     }
   });
 
+  app.route("/api/growth/project/:id")
+    .get(async (req, res) => {
+      const projectId = req.params.id;
+      try {
+        const project = await Project.find( {_id: projectId});
+        return res.json(project);
+      } catch (err) {
+        return res.status(500).json({ message: err.message });
+      }
+    });
+
 const main = async () => {
   await mongoose.connect(MONGO_URL);
 

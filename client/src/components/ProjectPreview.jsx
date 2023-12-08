@@ -32,7 +32,7 @@ export default function ProjectPreview({ project }) {
             <div className="bkg-fill mt-3 d-flex flex-column 
                 justify-content-center align-items-center px-4">
                 <button type="button" className="btn btn-custom"
-                onClick={() => navigate("/project")}
+                onClick={() => navigate(`/project/${project._id}`)}
                 >
                     Resume
                 </button>

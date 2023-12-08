@@ -22,7 +22,7 @@ export default function CurrentProject() {
           throw new Error("Request failed");
         }
       } catch (error) {
-        if (e.name === "AbortError") return;
+        if (error.name === "AbortError") return;
         setIsError(true);
       } finally {
         if (controller.signal.aborted) return;
