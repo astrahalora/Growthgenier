@@ -3,7 +3,7 @@ import { checkProjectStatus } from "../utilities/projectStatusChecker";
 export default function ProjectPreview({ project }) {
     const calculateCompletionWidth = () => {
         const totalTasks = project.tasks.length;
-        if (totalTasks.length === 0) return 0;
+        if (totalTasks === 0) return 0;
 
         const completedTasks = project.tasks.filter(task => task.taskStatus).length;
         const completionPercentage = (completedTasks / totalTasks) * 100;
