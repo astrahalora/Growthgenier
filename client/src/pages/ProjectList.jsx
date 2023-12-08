@@ -11,6 +11,7 @@ export default function ProjectList() {
     const [isLoading, setIsLoading] = useState(true);
     const [stateChanged, setStateChaged] = useState(false);
     const selectElement = useRef();
+    const inputElement = useRef();
 
     useEffect(() => {
         const getLastIncompleteProject = async (controller) => {
@@ -23,6 +24,7 @@ export default function ProjectList() {
                     const data = await response.json();
                     const reversedData = data.reverse();
                     setData(reversedData);
+                    setFilteredData(reversedData);
                     setDataToDisplay(reversedData);
                 } else {
                     throw new Error("Request failed");
@@ -42,14 +44,35 @@ export default function ProjectList() {
 
     const filterByCompletion = () => {
         const optionName = selectElement.current.value;
+        inputElement.current.value = "";
+        // reset both dataToDisplay and filteredData to base data 
         setDataToDisplay(data);
-        setDataToDisplay(prev =>  [...prev].filter(item => {
-            if(optionName === "Completed") return item.status;
-            if(optionName === "In Progress") return !item.status;
-            return item;
-        }));
-        setFilteredData(dataToDisplay);
-    }
+        setFilteredData(data);
+
+        // if want to view all projects, already done, so return
+        if(optionName === "-- All Projects --") return;
+
+        // if want to view completed or in progress, filter both
+        const filterByStatus = (projects) => {
+            return [...projects].filter(item => {
+                if(optionName === "Completed") return item.status;
+                return !item.status;
+            })
+        }
+        setDataToDisplay(prev =>  filterByStatus(prev));
+        setFilteredData(prev =>  filterByStatus(prev));
+    };
+    
+    const searchByName = () => {
+        const searchPhrase = inputElement.current.value.toLowerCase();
+        // set dataToDisplay to last value of filteredData
+        // since we're not manipulating filteredData here, can always be baseline
+        setDataToDisplay(filteredData);
+        setDataToDisplay(prev => {
+            return [...prev]
+            .filter(item => item.name.toLowerCase().includes(searchPhrase))
+        });
+    };
 
     return (
         <>
@@ -63,7 +86,7 @@ export default function ProjectList() {
                         <select
                             name="project-type"
                             id="project-type"
-                            className="col text-center bkg-achievement p-2"
+                            className="col text-center bkg-achievement p-2 rounded-2"
                             onChange={filterByCompletion}
                             ref={selectElement}
                         >
@@ -76,9 +99,12 @@ export default function ProjectList() {
                             name="search"
                             id="search"
                             placeholder="Search..."
-                            className="col ms-2 p-2" />
+                            className="col ms-2 p-2"
+                            ref={inputElement}
+                            onChange={searchByName}
+                        />
                     </div>
-                    {dataToDisplay.length > 0 && dataToDisplay.map(project => (
+                    {dataToDisplay && (dataToDisplay.length > 0) && dataToDisplay.map(project => (
                         <ProjectPreview project={project} key={project._id} />
                     ))}
                 </div>
