@@ -71,9 +71,9 @@ export default function ProjectList() {
 
     const deleteProject = (projectId) => {
         useDelete(projectId);
-        setData(prev => filterOutById(prev));
-        setFilteredData(prev => filterOutById(prev));
-        setDataToDisplay(prev => filterOutById(prev));
+        setData(prev => filterOutById(prev, projectId));
+        setFilteredData(prev => filterOutById(prev, projectId));
+        setDataToDisplay(prev => filterOutById(prev, projectId));
     };
 
     return (
