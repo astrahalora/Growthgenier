@@ -2,7 +2,6 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const express = require("express");
-// const profileModel = require("./db/profile.model");
 const Project = require("./db/project.model");
 
 const { MONGO_URL, PORT = 5000 } = process.env;
@@ -126,7 +125,6 @@ app.route("/api/growth/")
       return res.status(500).json({ message: err.message });
     }
   });
-  
 
 const main = async () => {
   await mongoose.connect(MONGO_URL);
