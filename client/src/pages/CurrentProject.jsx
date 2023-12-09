@@ -92,16 +92,6 @@ export default function CurrentProject() {
       });
   }
 
-  // const handleTaskDelete = (project, taskId) => {
-  //   const updatedTasks = JSON.parse(JSON.stringify(project.tasks.filter(item => item._id !== taskId)));
-
-  //   usePut(project._id, updatedTasks)
-  //     .then(() => setStateChanged(prev => !prev))
-  //     .catch(err => {
-  //       console.error(err.message);
-  //     });
-  // }
-
   const handleTaskDelete = (project, taskId) => {
     const updatedProject = JSON.parse(JSON.stringify(project));
     const updatedTasks = updatedProject.tasks.filter(item => item._id !== taskId);
