@@ -78,8 +78,7 @@ export default function SelectedProject() {
     const updatedProject = JSON.parse(JSON.stringify(project));
     const updatedTasks = updatedProject.tasks.filter(item => item._id !== taskId);
     updatedProject.tasks = updatedTasks;
-    const allTasksCompleted = updatedTasks.every(item => item.taskStatus);
-    updatedProject.status = allTasksCompleted;
+    updateProjectStatus(updatedProject);
 
     usePatch(project._id, updatedProject)
       .then(() => setStateChanged(prev => !prev))
