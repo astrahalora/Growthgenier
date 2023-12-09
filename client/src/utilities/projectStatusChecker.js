@@ -19,4 +19,9 @@ const filterByStatus = (projects, optionName) => {
     })
 }
 
-export { checkProjectStatus, filterByStatus };
+const updateProjectStatus = (project) => {
+    const allTasksCompleted = project.tasks.every(item => item.taskStatus);
+    project.status = allTasksCompleted;
+}
+
+export { checkProjectStatus, filterByStatus, updateProjectStatus };

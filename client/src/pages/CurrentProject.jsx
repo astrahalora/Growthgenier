@@ -4,6 +4,7 @@ import { usePatch } from "../utilities/usePatch";
 import { usePut } from "../utilities/usePut";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
+import { updateProjectStatus } from "../utilities/projectStatusChecker";
 
 export default function CurrentProject() {
   const [data, setData] = useState();
@@ -53,8 +54,7 @@ export default function CurrentProject() {
     if(newTaskName === "") return;
     const updatedProject = JSON.parse(JSON.stringify(project));
     updatedProject.tasks.push({taskName: newTaskName});
-    const allTasksCompleted = updatedProject.tasks.every(item => item.taskStatus);
-    updatedProject.status = allTasksCompleted;
+    updateProjectStatus(updatedProject);
 
     usePatch(project._id, updatedProject)
       .then(() => setStateChanged(prev => !prev))
