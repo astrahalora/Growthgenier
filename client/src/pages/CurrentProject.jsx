@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ProjectTable from "../components/ProjectTable";
 import { usePatch } from "../utilities/usePatch";
-import { usePut } from "../utilities/usePut";
 import ErrorPage from "./ErrorPage";
 import Loading from "./Loading";
 import { updateProjectStatus } from "../utilities/projectStatusChecker";
@@ -93,14 +92,34 @@ export default function CurrentProject() {
       });
   }
 
-  const handleTaskDelete = (project, taskId) => {
-    const updatedTasks = JSON.parse(JSON.stringify(project.tasks.filter(item => item._id !== taskId)));
+  // const handleTaskDelete = (project, taskId) => {
+  //   const updatedTasks = JSON.parse(JSON.stringify(project.tasks.filter(item => item._id !== taskId)));
 
-    usePut(project._id, updatedTasks)
-      .then(() => setStateChanged(prev => !prev))
-      .catch(err => {
-        console.error(err.message);
-      });
+  //   usePut(project._id, updatedTasks)
+  //     .then(() => setStateChanged(prev => !prev))
+  //     .catch(err => {
+  //       console.error(err.message);
+  //     });
+  // }
+
+  const handleTaskDelete = (project, taskId) => {
+    const updatedProject = JSON.parse(JSON.stringify(project));
+    const updatedTasks = updatedProject.tasks.filter(item => item._id !== taskId);
+    updatedProject.tasks = updatedTasks;
+    const allTasksCompleted = updatedTasks.every(item => item.taskStatus);
+    updatedProject.status = allTasksCompleted;
+
+    usePatch(project._id, updatedProject)
+    .then(() => {
+      if (!allTasksCompleted) {
+        setStateChanged(prev => !prev)
+      } else {
+        getLastCompletedProject(project._id);
+      }
+    })
+    .catch(err => {
+      console.error(err.message);
+    });
   }
 
   return (

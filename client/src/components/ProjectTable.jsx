@@ -1,9 +1,15 @@
+import Loading from "../pages/Loading";
 import AddNewTask from "./AddNewTask";
 import ProjectName from "./ProjectName";
 import ProjectStatus from "./ProjectStatus";
 import TaskItem from "./TaskItem";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectTable({ project, addNewTask, statusChange, saveTask, deleteTask }) {
+    const navigate = useNavigate();
+    if(project.tasks === null) {
+        navigate("/");
+    }
     const sortedTasks = [...project.tasks].sort((a, b) => {
         return a.taskStatus === b.taskStatus ? 0 : a.taskStatus ? 1 : -1;
     });

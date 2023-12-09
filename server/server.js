@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const express = require("express");
-const Project = require("./db/project.model");
+const app = express();
 
 const { MONGO_URL, PORT = 5000 } = process.env;
 
@@ -11,9 +11,7 @@ if (!MONGO_URL) {
   process.exit(1);
 }
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const Project = require("./db/project.model");
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -24,6 +22,9 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+app.use(cors());
+app.use(express.json());
 
 app.route("/api/growth/")
   .get(async (req, res) => {
@@ -91,22 +92,6 @@ app.route("/api/growth/")
 
       const updatedProject = await project.save();
       return res.json(updatedProject);
-    } catch (err) {
-      return res.status(400).json({ message: err.message });
-    }
-  })
-  .put(async (req, res) => {
-    const projectId = req.params.id;
-    try {
-      const existingProject = await Project.findById(projectId);
-
-      if (existingProject) {
-        existingProject.tasks = req.body;
-        const updatedProject = await existingProject.save();
-        return res.json(updatedProject);
-      } else {
-        return res.status(404).json({ message: "Project not found" });
-      }
     } catch (err) {
       return res.status(400).json({ message: err.message });
     }

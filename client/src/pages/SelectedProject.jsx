@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { usePatch } from "../utilities/usePatch";
-import { usePut } from "../utilities/usePut";
 import Loading from "./Loading";
 import ErrorPage from "./ErrorPage";
 import ProjectTable from "../components/ProjectTable";
@@ -12,7 +11,7 @@ export default function SelectedProject() {
   const [data, setData] = useState();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [stateChanged, setStateChaged] = useState(false);
+  const [stateChanged, setStateChanged] = useState(false);
 
   useEffect(() => {
     const getSelectedProject = async (controller) => {
@@ -44,7 +43,7 @@ export default function SelectedProject() {
     updateProjectStatus(updatedProject);
 
     usePatch(project._id, updatedProject)
-      .then(() => setStateChaged(prev => !prev))
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
@@ -57,7 +56,7 @@ export default function SelectedProject() {
     updateProjectStatus(updatedProject);
 
     usePatch(project._id, updatedProject)
-      .then(() => setStateChaged(prev => !prev))
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
@@ -69,17 +68,21 @@ export default function SelectedProject() {
       .forEach(item => item._id === taskId ? item.taskName = newTaskName : null);
 
     usePatch(project._id, updatedProject)
-      .then(() => setStateChaged(prev => !prev))
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
   }
 
   const handleTaskDelete = (project, taskId) => {
-    const updatedTasks = JSON.parse(JSON.stringify(project.tasks.filter(item => item._id !== taskId)));
+    const updatedProject = JSON.parse(JSON.stringify(project));
+    const updatedTasks = updatedProject.tasks.filter(item => item._id !== taskId);
+    updatedProject.tasks = updatedTasks;
+    const allTasksCompleted = updatedTasks.every(item => item.taskStatus);
+    updatedProject.status = allTasksCompleted;
 
-    usePut(project._id, updatedTasks)
-      .then(() => setStateChaged(prev => !prev))
+    usePatch(project._id, updatedProject)
+      .then(() => setStateChanged(prev => !prev))
       .catch(err => {
         console.error(err.message);
       });
