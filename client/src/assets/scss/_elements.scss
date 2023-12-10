@@ -48,12 +48,9 @@
 
 .footer-position {
     text-align: center;
-
-    @media (min-width: 992px) {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .growth-frame {

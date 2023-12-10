@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './App.scss'
-import * as bootstrap from 'bootstrap'
 import { router } from "./router";
 import { RouterProvider } from 'react-router-dom'
 

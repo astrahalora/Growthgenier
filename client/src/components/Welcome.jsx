@@ -14,7 +14,7 @@ export default function YourComponent({ projects }) {
   }, [projects]);
 
   return (
-    <div className="mx-auto text-center">
+    <div className=" col-12 mx-auto text-center">
       <h2>Welcome to your {getTitle}!</h2>
     </div>
   );

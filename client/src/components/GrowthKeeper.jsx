@@ -14,7 +14,7 @@ export default function GrowthKeeper({ projects }) {
   }, [projects]);
 
   return (
-    <div className="col-9 mt-3">
+    <div className="col col-lg-9 mt-3">
       <img src={pickImage} alt="Growth Stage" className="w-100 growth-keeper" />
     </div>
   );
