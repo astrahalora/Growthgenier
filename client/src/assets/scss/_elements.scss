@@ -91,3 +91,8 @@
         height: 100%;
     }
 }
+
+.border-custom {
+    border: 2px solid $main-accent-color;
+    border-radius: 5px;
+}
