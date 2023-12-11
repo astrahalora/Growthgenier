@@ -62,11 +62,11 @@ export default function ProjectCreator() {
         <form onSubmit={handleFormSubmit} className="container p-4 form-box mt-4 bkg-fill rounded-3 text-achievement">
             <div className="p-5 border-custom">
                 <div className="row mx-auto">
-                    <label htmlFor="name" className="col-2 form-label lh-lg">
+                    <label htmlFor="name" className="col-12 col-md-2 form-label lh-lg">
                         Name:
                     </label>
                     <input
-                        className="col-8 p-1 ps-3"
+                        className="col-12 col-md-8 p-1 ps-3"
                         type="text"
                         name="name"
                         id="name"
@@ -92,11 +92,11 @@ export default function ProjectCreator() {
                                 </li>
                             )) : null}
                     </ul>
-                    <label htmlFor="task" className="col-2 form-label lh-lg">
+                    <label htmlFor="task" className="col-12 col-md-2 form-label lh-lg">
                         Task:
                     </label>
                     <input
-                        className="col-8"
+                        className="col-12 col-md-8"
                         type="text"
                         name="task"
                         id="task"
@@ -106,18 +106,18 @@ export default function ProjectCreator() {
                     />
                     <button
                         type="button"
-                        className="btn btn-custom col-2"
+                        className="btn btn-custom col col-md-2 mt-2 mt-md-0"
                         onClick={addTask}>
                         Add
                     </button>
                 </div>
 
                 <div className="row d-flex justify-content-center mt-4">
-                    <div className="col-4"></div>
-                    <button type="submit" className="btn btn-custom col-4">
+                    <div className="col-2 col-md-4"></div>
+                    <button type="submit" className="btn btn-custom col-6 col-md-4">
                         Start Project
                     </button>
-                    <div className="col-4"></div>
+                    <div className="col-2 col-md-4"></div>
                 </div>
             </div>
         </form>
