@@ -5,7 +5,7 @@ export default function ProjectStatus({ projectStatus }) {
     return (
         <div
             className={`${checkProjectStatus(projectStatus,"bkg")} 
-            p-2 text-center w-100 project-confines position-relative`}>
+            p-2 text-center w-100 project-confines position-relative mb-4 mb-md-0`}>
             <img
                 src={checkProjectStatus(projectStatus, "pic")}
                 alt="Status Marker"
