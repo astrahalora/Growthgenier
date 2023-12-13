@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function GrowthOptions({ projects }) {
   const navigate = useNavigate();
-  const completedProjects = projects.length ? projects.filter(project => project.status === true).length : 0;
+  const completedProjects = projects.length ? projects.filter(project => project.status).length : 0;
   const incompleteProjects = projects.length ? projects.filter(project => project.status === false).length : 0;
   
   return (

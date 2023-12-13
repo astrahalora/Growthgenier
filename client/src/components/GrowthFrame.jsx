@@ -4,7 +4,6 @@ import GrowthOptions from "./GrowthOptions";
 import Welcome from "./Welcome";
 import Loading from "../pages/Loading";
 import ErrorPage from "../pages/ErrorPage";
-import Footer from "./Footer";
 
 export default function GrowthFrame() {
   const { data, isLoading, isError } = useFetch();
