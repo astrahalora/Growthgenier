@@ -87,8 +87,19 @@
     width: 600px;
     height: 150px;
 
+    @media (max-width: 770px) {
+        width: 300px;
+        height: 100%;
+    }
+
     .preview-image {
         height: 100%;
+
+        @media(max-width: 770px) {
+            height: 150px;
+            width: 150px;
+            margin: 1em auto 0.5em auto;
+        }
     }
 }
 

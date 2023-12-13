@@ -22,11 +22,9 @@ html, body {
          radial-gradient(circle at 65% 91%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 46%,
          transparent 46%, transparent 76%,transparent 76%, transparent 100%),
          linear-gradient(45deg, rgb(160,121,85),rgb(43,95,86));
+         background-repeat: no-repeat;
+         background-size: 100%;
     }
-}
-
-#root {
-    background-color: transparent;
 }
 
 .navbar {
