@@ -2,16 +2,6 @@ html, body {
     background-color: $main-color;
     margin: 0;
     height: auto;
-    @include complex-background;
-}
-
-//fix for background displaying improperly on homepage
-.home-page {
-    height: 100%;
-}
-
-#root {
-    @include complex-background;
 }
 
 .navbar {
