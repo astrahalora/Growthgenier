@@ -6,6 +6,7 @@ import { filterByStatus } from "../utilities/projectStatusChecker";
 import { filterOutById } from "../utilities/filterProjects";
 import { useDelete } from "../utilities/useDelete";
 import ProjectSort from "../components/ProjectSort";
+import { backgroundChange } from "../utilities/backgroundChange";
 
 export default function ProjectList() {
     const [data, setData] = useState();
@@ -13,6 +14,8 @@ export default function ProjectList() {
     const [dataToDisplay, setDataToDisplay] = useState();
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+
+    backgroundChange();
 
     useEffect(() => {
         const getProjects = async (controller) => {

@@ -8,3 +8,28 @@ $nature-color: rgb(136, 180, 127);
 $fill-color: rgb(110, 94, 105);
 $dark-fill: rgb(43, 95, 86);
 $pale-fill: rgb(138, 88, 113);
+
+@mixin complex-background {
+    @media (min-width: 450px) {
+        background-image: radial-gradient(circle at 29% 55%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 4%,
+        transparent 4%, transparent 44%,transparent 44%, transparent 100%),radial-gradient(circle at 85% 89%, rgba(255,246,218, 0.05) 0%,
+         rgba(255,246,218, 0.05) 51%,transparent 51%, transparent 52%,transparent 52%, transparent 100%),
+         radial-gradient(circle at 6% 90%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 53%,
+         transparent 53%, transparent 64%,transparent 64%, transparent 100%),
+         radial-gradient(circle at 35% 75%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 6%,
+         transparent 6%, transparent 98%,transparent 98%, transparent 100%),
+         radial-gradient(circle at 56% 75%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 16%,
+         transparent 16%, transparent 23%,transparent 23%, transparent 100%),
+         radial-gradient(circle at 42% 0%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 3%,
+         transparent 3%, transparent 26%,transparent 26%, transparent 100%),
+         radial-gradient(circle at 29% 28%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 51%,
+         transparent 51%, transparent 75%,transparent 75%, transparent 100%),
+         radial-gradient(circle at 77% 21%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 35%,
+         transparent 35%, transparent 55%,transparent 55%, transparent 100%),
+         radial-gradient(circle at 65% 91%, rgba(255,246,218, 0.05) 0%, rgba(255,246,218, 0.05) 46%,
+         transparent 46%, transparent 76%,transparent 76%, transparent 100%),
+         linear-gradient(45deg, rgb(160,121,85),rgb(43,95,86));
+         background-repeat: no-repeat;
+         background-size: cover;
+    }
+}

@@ -9,17 +9,17 @@ export default function GrowthFrame() {
   const { data, isLoading, isError } = useFetch();
 
   return (
-    <div className="container p-0 growth-frame">
-      { isLoading ? (
-        <Loading/>
+    <div className="container p-0 growth-frame home-page">
+      {isLoading ? (
+        <Loading />
       ) : isError ? (
-        <ErrorPage/>
+        <ErrorPage />
       ) : (
-      <div className="row m-0 p-0 mt-4">
-        <Welcome projects={data} />
-        <GrowthKeeper projects={data} />
-        <GrowthOptions projects={data} />
-      </div>
+        <div className="row m-0 p-0 mt-4">
+          <Welcome projects={data} />
+          <GrowthKeeper projects={data} />
+          <GrowthOptions projects={data} />
+        </div>
       )}
     </div>
   );
