@@ -1,5 +1,6 @@
 html, body {
-    background-color: $main-color;
+    background: $main-color;
+    background: linear-gradient(90deg, rgb(160,121,85) 0%, rgb(56, 105, 99) 100%);
     margin: 0;
     height: auto;
 }
