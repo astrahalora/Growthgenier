@@ -19,7 +19,7 @@ export default function YourComponent({ projects }) {
 
   return (
     <div className=" col-12 mx-auto text-center">
-      <h2>Welcome to your {getTitle}!</h2>
+      <h2 className="d-inline-block title-style bkg-achievement pt-1 pb-2 px-5">Welcome to your {getTitle}!</h2>
     </div>
   );
 }

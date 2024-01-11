@@ -12,13 +12,13 @@ export default function GrowthOptions({ projects }) {
           <h5 className="d-inline-block px-3 me-2 py-1 bkg-nature rounded-2">
             {completedProjects}
           </h5>
-          <h5 className="d-inline-block">Completed</h5>
+          <h5 className="d-inline-block px-3 me-2 py-1 bkg-nature rounded-2">Completed</h5>
         </div>
         <div className="col col-lg-12">
           <h5 className="d-inline-block px-3 me-2 py-1 bkg-achievement rounded-2">
             {incompleteProjects}
           </h5>
-          <h5 className="d-inline-block">In Progress</h5>
+          <h5 className="d-inline-block px-3 me-2 py-1 bkg-achievement rounded-2">In Progress</h5>
         </div>
       </div>
       <div className="row mt-lg-4">
