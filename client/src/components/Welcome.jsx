@@ -4,12 +4,16 @@ export default function YourComponent({ projects }) {
   const getTitle = useMemo(() => {
     const completedProjects = projects.filter(project => project.status).length;
     switch (completedProjects) {
+      case 0:
+        return "Dirt";
       case 1:
         return "Flower";
       case 2:
+      case 3:
+      case 4:
         return "Flowers";
       default:
-        return "Dirt";
+        return "Magnificent Planter";
     }
   }, [projects]);
 
