@@ -26,13 +26,18 @@ app.use(function (req, res, next) {
 app.use(cors());
 app.use(express.json());
 
+const serverErrorHandler = (res, err) => {
+  console.error(err);
+  return res.status(500).json({ message: err.message });
+};
+
 app.route("/api/growth/")
   .get(async (req, res) => {
     try {
       const projects = await Project.find();
       return res.json(projects);
     } catch (err) {
-      return res.status(500).json({ message: err.message });
+      serverErrorHandler(res, err);
     }
   })
   .post(async (req, res) => {
@@ -55,7 +60,7 @@ app.route("/api/growth/")
       const lastProject = await Project.findOne({ status: false }).sort({ _id: -1 });
       return res.json(lastProject);
     } catch (err) {
-      return res.status(500).json({ message: err.message });
+      serverErrorHandler(res, err);
     }
   });
 
@@ -66,7 +71,7 @@ app.route("/api/growth/")
       const lastProject = await Project.findOne({ _id: projectId });
       return res.json(lastProject);
     } catch (err) {
-      return res.status(500).json({ message: err.message });
+      serverErrorHandler(res, err);
     }
   });
 
@@ -77,7 +82,7 @@ app.route("/api/growth/")
       const project = await Project.find( {_id: projectId});
       return res.json(project);
     } catch (err) {
-      return res.status(500).json({ message: err.message });
+      serverErrorHandler(res, err);
     }
   })
   .patch(async (req, res) => {
@@ -107,7 +112,7 @@ app.route("/api/growth/")
       }
       return res.status(200).json({ message: "Project deleted successfully" });
     } catch (err) {
-      return res.status(500).json({ message: err.message });
+      serverErrorHandler(res, err);
     }
   });
 
