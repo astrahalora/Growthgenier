@@ -1,4 +1,3 @@
-import Loading from "../pages/Loading";
 import AddNewTask from "./AddNewTask";
 import ProjectName from "./ProjectName";
 import ProjectStatus from "./ProjectStatus";

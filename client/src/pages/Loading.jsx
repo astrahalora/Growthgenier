@@ -6,4 +6,4 @@ export default function Loading() {
             <img src={loading} alt="Loading" />
           </div>
     );
-  }
+}

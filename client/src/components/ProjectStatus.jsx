@@ -1,4 +1,3 @@
-
 import { checkProjectStatus } from "../utilities/projectStatusChecker";
 
 export default function ProjectStatus({ projectStatus }) {
