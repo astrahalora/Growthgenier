@@ -5,8 +5,9 @@ Fully reponsive MERN project initialized with Vite, complete with:
 - custom 404 Page not found
 - custom logo designed with LeonardoAi
 - easy navigation with react-router-dom
-- MongoBD server connection and custom API
-- main image designed and drawn by **astrahalora**
+- MongoBD server connection for data
+- profile growth tracker
+- project list
 - loading page (with icon from Pixabay)
 
 ## Technologies
@@ -38,14 +39,6 @@ Create a .env file in the server directory.
 
 Check out the .env.example file to see how the link to your cluster is recommended to look. Fill out the .env file with this info (can copy paste the example and change the username and password).
 
-### Generate Starter Profile
-
-To setup your starter profile for the app, run the following command in your terminal while inside the server directory:
-
-```
-node populate
-```
-
 ### Starting the server
 
 Run the following command in your terminal while inside the server directory:
@@ -60,7 +53,7 @@ To run it with nodemon:
 npm run dev
 ```
 
-Your local server should now be running, you can check out the base profile json at the address specified in the terminal!
+Your local server should now be running!
 
 ## Client side
 
