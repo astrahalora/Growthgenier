@@ -135,3 +135,7 @@ Searching is performed within the category selected through sorting (default All
 - search output changes on page with every new letter added or subtracted
 
 ![growthgenier project searching](https://images2.imgbox.com/d5/56/aSzHrR2R_o.jpg)
+
+## Instance of Mobile View
+
+![growthgenier profile on mobile](https://images2.imgbox.com/62/db/WaQ0zGlF_o.jpg) ![growthgenier project on mobile](https://images2.imgbox.com/5c/1d/YCNEnd1P_o.jpg) ![growthgenier project creator on mobile](https://images2.imgbox.com/e3/b8/mUKotZIM_o.jpg) ![growthgenier projects on mobile](https://images2.imgbox.com/0d/04/DtJYpapx_o.jpg)
