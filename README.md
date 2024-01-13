@@ -80,3 +80,24 @@ npm run dev
 
 You should see in the terminal that the client has been started at: http://localhost:5173/
 You can CTRL + click on the link or copy + paste it in your browser. 
+
+# Features Details
+
+## Project Creator
+
+A form where you can input a name and add as many tasks as desired. 
+- will not be submitted without a name or at least one task
+
+![growthgenier project creator](https://images2.imgbox.com/2d/93/SkUtLtL9_o.jpg)
+
+## Project
+
+Following form submission, you will be redirected to the resulting TODO table. 
+- color coded task items (purple for todo and green for completed), dynamically changing based on clicked or unclicked Completed
+- incomplete task items are dynamically featured before completed ones
+- edit function to change the name of the task (turns to input field)
+- delete function to remove task from list
+- add task function to add a new task to the list
+- progress bar at the bottom that dinamically changes (if all tasks are completed, will change to Completed, if a new task is added or unckeched, it reverts to In Progress)
+
+![growthgenier TODO table](https://images2.imgbox.com/dc/09/azOjG3Va_o.jpg)
