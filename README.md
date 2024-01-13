@@ -84,10 +84,21 @@ You can CTRL + click on the link or copy + paste it in your browser.
 
 # Feature Details
 
+## Growth Profile
+
+- variable welcome message based on level of growth
+- flowers will be added to the image planter as the Completed count goes up (for presentation purposes 5 levels available)
+- Completed and In Progress project counts
+- button to start a new project, leading to Project Creator
+- button to load the latest created unfinished project or the latest created completed project if all are completed
+
+![growthgenier growth profile](https://images2.imgbox.com/78/06/QEa4yIQR_o.jpg)
+
 ## Project Creator
 
-A form where you can input a name and add as many tasks as desired. 
+A form where you can input a name and add and remove as many tasks as desired. 
 - will not be submitted without a name or at least one task
+- tasks are saved in local storage before project submission
 
 ![growthgenier project creator](https://images2.imgbox.com/e0/a6/Eoimyne3_o.jpg)
 
