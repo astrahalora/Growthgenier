@@ -81,7 +81,7 @@ npm run dev
 You should see in the terminal that the client has been started at: http://localhost:5173/
 You can CTRL + click on the link or copy + paste it in your browser. 
 
-# Features Details
+# Feature Details
 
 ## Project Creator
 
@@ -101,3 +101,12 @@ Following form submission, you will be redirected to the resulting TODO table.
 - progress bar at the bottom that dinamically changes (if all tasks are completed, will change to Completed, if a new task is added or unckeched, it reverts to In Progress)
 
 ![growthgenier TODO table](https://images2.imgbox.com/dc/09/azOjG3Va_o.jpg)
+
+## Project List
+
+The Projects page features a list of all projects sorted from most recent to oldest.
+- displays progress bar (based on number of completed tasks) and completion status icon for each project
+- sorting options: All Projects, Completed, In Progress
+- name based searching 
+
+![growthgenier projects list](https://images2.imgbox.com/0c/59/BKftvNvM_o.jpg)
