@@ -100,7 +100,7 @@ Following form submission, you will be redirected to the resulting TODO table.
 - add task function to add a new task to the list
 - progress bar at the bottom that dinamically changes (if all tasks are completed, will change to Completed, if a new task is added or unckeched, it reverts to In Progress)
 
-![growthgenier TODO table](https://images2.imgbox.com/dc/09/azOjG3Va_o.jpg)
+![growthgenier TODO table](https://images2.imgbox.com/a3/e8/j9fTUl7o_o.jpg)
 
 ## Project List
 

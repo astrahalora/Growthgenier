@@ -16,7 +16,7 @@ export default function ProjectPreview({ project, deleteProject }) {
                     alt="Project Status"
                     className="preview-image" />
                 <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100">
-                    <h4>{project.name}</h4>
+                    <h4 className="text-center">{project.name}</h4>
                     <div className="w-75 d-flex mb-3 mb-md-0">
                         <div
                             className="bkg-dark-fill py-2"
