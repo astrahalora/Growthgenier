@@ -99,6 +99,8 @@ Following form submission, you will be redirected to the resulting TODO table.
 - delete function to remove task from list
 - add task function to add a new task to the list
 - progress bar at the bottom that dinamically changes (if all tasks are completed, will change to Completed, if a new task is added or unckeched, it reverts to In Progress)
+- resume project function which opens up the project
+- delete project function which removes the project from the database
 
 ![growthgenier TODO table](https://images2.imgbox.com/dc/09/azOjG3Va_o.jpg)
 
@@ -118,5 +120,6 @@ The Projects page features a list of all projects sorted from most recent to old
 ### Searching 
 
 Searching is performed within the category selected through sorting (default All Projects)
+- search output changes on page with every new letter added or subtracted
 
 ![growthgenier project searching](https://images2.imgbox.com/d5/56/aSzHrR2R_o.jpg)
