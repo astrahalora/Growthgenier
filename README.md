@@ -12,6 +12,7 @@ Fully reponsive MERN project initialized with Vite, complete with:
 - project list
 - loading page (with icon from Pixabay)
 - error page
+- functional components
 
 ![growthgenier main page](https://images2.imgbox.com/c0/35/K22B7pp9_o.jpg)
 
@@ -88,7 +89,7 @@ You can CTRL + click on the link or copy + paste it in your browser.
 A form where you can input a name and add as many tasks as desired. 
 - will not be submitted without a name or at least one task
 
-![growthgenier project creator](https://images2.imgbox.com/2d/93/SkUtLtL9_o.jpg)
+![growthgenier project creator](https://images2.imgbox.com/e0/a6/Eoimyne3_o.jpg)
 
 ## Project
 
