@@ -12,6 +12,8 @@ Fully reponsive MERN project initialized with Vite, complete with:
 - loading page (with icon from Pixabay)
 - error page
 
+![growthgenier main page](https://images2.imgbox.com/c0/35/K22B7pp9_o.jpg)
+
 ## Technologies
 
 - React (frontend JavaScript library for building user interfaces based on components)
