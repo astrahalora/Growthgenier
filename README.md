@@ -5,10 +5,12 @@ Fully reponsive MERN project initialized with Vite, complete with:
 - custom 404 Page not found
 - custom logo designed with LeonardoAi
 - easy navigation with react-router-dom
-- MongoBD server connection for data
+- MongoDB server connection for data
+- project creator that generates an editable TODO list
 - profile growth tracker
 - project list
 - loading page (with icon from Pixabay)
+- error page
 
 ## Technologies
 
