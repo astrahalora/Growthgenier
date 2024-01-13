@@ -110,3 +110,13 @@ The Projects page features a list of all projects sorted from most recent to old
 - name based searching 
 
 ![growthgenier projects list](https://images2.imgbox.com/0c/59/BKftvNvM_o.jpg)
+
+### Sorting
+
+![growthgenier project sorting](https://images2.imgbox.com/f5/fa/1VyFEgxq_o.jpg)
+
+### Searching 
+
+Searching is performed within the category selected through sorting (default All Projects)
+
+![growthgenier project searching](https://images2.imgbox.com/d5/56/aSzHrR2R_o.jpg)
