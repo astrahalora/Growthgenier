@@ -136,7 +136,7 @@ Searching is performed within the category selected through sorting (default All
 
 ![growthgenier project searching](https://images2.imgbox.com/d5/56/aSzHrR2R_o.jpg)
 
-## Instance of Mobile View
+## Instance of Mobile Views
 
 ![growthgenier profile and project creator on mobile](https://images2.imgbox.com/07/6a/7smeCWGj_o.jpg) 
 ![growthgenier project and projects on mobile](https://images2.imgbox.com/99/d0/seiFcq2d_o.jpg) 
