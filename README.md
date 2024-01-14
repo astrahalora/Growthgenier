@@ -138,5 +138,5 @@ Searching is performed within the category selected through sorting (default All
 
 ## Instance of Mobile Views
 
-![growthgenier profile and project creator on mobile](https://images2.imgbox.com/07/6a/7smeCWGj_o.jpg) 
-![growthgenier project and projects on mobile](https://images2.imgbox.com/99/d0/seiFcq2d_o.jpg) 
+![growthgenier profile and project creator on mobile](https://images2.imgbox.com/b9/c3/SMULd7Jy_o.jpg) 
+![growthgenier project and projects on mobile](https://images2.imgbox.com/da/24/iTZsJUP6_o.jpg) 
