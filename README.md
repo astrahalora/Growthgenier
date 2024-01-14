@@ -4,15 +4,15 @@ Fully reponsive MERN project initialized with Vite, complete with:
 
 - custom 404 Page not found
 - custom logo designed with LeonardoAi
-- custom growth tracker image made by **astrahalora** and some edited content from LeonardoAi 
+- custom growth tracker image made by **astrahalora** and some edited content from LeonardoAi - non-optimized, just for quick presentation
 - easy navigation with react-router-dom
+- functional components
 - MongoDB server connection for data
 - project creator that generates an editable TODO list
 - profile growth tracker
 - project list
 - loading page (with icon from Pixabay)
 - error page
-- functional components
 
 ![growthgenier main page](https://images2.imgbox.com/c0/35/K22B7pp9_o.jpg)
 
