@@ -31,7 +31,7 @@ Fully reponsive MERN project initialized with Vite, complete with:
 
 ### Install dependencies
 
-Open the terminal and navigate to the client directory. Once inside, run this command:
+Open the terminal and navigate to the server directory. Once inside, run this command:
 
 ```
 npm install
