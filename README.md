@@ -14,6 +14,8 @@ Fully reponsive MERN project initialized with Vite, complete with:
 - loading page (with icon from Pixabay)
 - error page
 
+**[Click Here to View a Demo Video](https://youtu.be/nulTF8s-naw?si=v3pBKmlmKbsiXJDG)**
+
 ![growthgenier main page](https://images2.imgbox.com/c0/35/K22B7pp9_o.jpg)
 
 ## Technologies
